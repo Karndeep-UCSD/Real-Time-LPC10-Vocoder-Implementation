@@ -92,7 +92,7 @@
 
   <p>
   
-  a few representative examples are included in this repository [examples]( https://github.com/Karndeep-UCSD/Real-Time-LPC10-Vocoder-Implementationn/SampleOutputs). The original high quality audio is played followed by the synthesized audio.
+  A few representative examples are included in this repository [examples]( https://github.com/Karndeep-UCSD/Real-Time-LPC10-Vocoder-Implementationn/SampleOutputs). The original high quality audio is played followed by the synthesized audio.
   
   </p>
 
