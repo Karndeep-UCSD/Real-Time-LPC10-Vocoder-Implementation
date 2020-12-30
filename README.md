@@ -38,16 +38,32 @@
 </p>
 
 <p>
-  This project demonstrates the use of 
+  LPC10 is based upon a physical model of speech synthesis in humans. For a given input signal, it is windowed into 25ms long windows. For each window, voicing, a fundemental frequency, gain, and coefficients for an all-pole filter are found. The physical model of speech assumes that at a small time scale, speech can be modeled by an linear time-invariant system. For this model, gain corresponds to air flow/volume, the fundemental frequency is the pitch of an individuals voice, and the vocal tract is modeled by a 10th order all-pole filter.
 </p>
 
+<p align="center">
+    <img src="images/synthesis.gif" alt="Synthesis" width="393" height="218">
+</p>
 
+<p>
+  Once encoded and trasmitted, speech can be sythesized. A pulse train with a period of the individuals fundemental frequency is used to stimulate the estimated all-pole filter. The output signal is then scaled based on the gain. Unvoiced audio undergoes the same process, with randomized excitation(white noise) and a 4th order filter. 
+</p>
+
+<p align="center">
+    <img src="images/pitch_interpolation.PNG" alt="Pitch_interpolation" width="393" height="218">
+</p>
+
+<p>
+  Specific to this work, I attempted to improve the quality of the output audio by using linear interpolation of pitch and gain. For pitch interpolation, the pitch was modulated between each bin in a causal fashion. Modulation was only present in the first half of each window. Similarly, the phase of the excitation signal was tracked and corrected. An example of pitch and phase interpolation is shown above. Gain modulation was applied using a linearly-interpolated envelope. 
+</p>
+  
 
 
 ### Data Availability
 <p>
   
-  Data can be downloaded from: [EmoV DataSet]( https://github.com/numediart/EmoV-DB). 
+  The vocoder was tested using audio clips from both genders. Neutral, angry, and sleepy audio clips were reconstructed to evaluate overall performance. Data can be downloaded from: [EmoV DataSet]( https://github.com/numediart/EmoV-DB). 
+  
   
 </p>
 
@@ -58,22 +74,27 @@
   ```sh
   LPC_Encoder_Decoder.m
   ```
-  This function 
+  This script takes in an audio clip, downsamples it to 8kHz, ecodes the audio, and sythesizes the audio back. Phase correction is included in this code. 
   
 2. Encoder-Decoder with gain and pitch interpolation
   ```sh
   LPC_Encoder_Decoder_Interpolation.m
   ```
-  This 
+  This clip performs the same steps as the above code with the addition of interpolating both the gain and pitch. 
   
 3. Real-Time Implementation
   ```sh
   LPC_RealTime.m
   ```
-  This 
+  This program allows for real-time listening of the sythesized audio. Phase correction is included. The order of the all-pole filter is maintained as a variable to demonstrate the varied audio quality that can be sythesized. 
 
 ## Results
+
+  <p>
   
+  a few representative examples are included in this repository [examples]( https://github.com/Karndeep-UCSD/Real-Time-LPC10-Vocoder-Implementationn/SampleOutputs). The original high quality audio is played followed by the synthesized audio.
+  
+  </p>
 
 
 <!-- CONTACT -->
