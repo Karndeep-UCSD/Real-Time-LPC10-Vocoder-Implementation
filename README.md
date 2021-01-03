@@ -12,7 +12,7 @@
   <h3 align="center">LPC10 Speech Encoder Implementation</h3>
 
   <p align="center">
-    The goal of speech compression is to maximally compress the audio data without corrupting the words or voice of the speaker. In this work, I implement the LPC-10 codec as per Federdal Standard 1015, first introduced in 1984. Input audio is compressed from a 8kHz sampling rate to a 2.4 kBits/s parameterized form. Both an encoder-decoder implementation and real-time implementation are provided. 
+    The goal of speech compression is to maximally compress the audio data without corrupting the words or voice of the speaker. In this work, I implement the LPC-10 codec as per Federal Standard 1015, first introduced in 1984. Input audio is compressed from a 8kHz sampling rate to a 2.4 kBits/s parameterized form. Both an encoder-decoder implementation and real-time implementation are provided. 
   </p>
 </p>
 
